@@ -11,7 +11,7 @@ chardet==3.0.4            # via binaryornot, requests
 click==7.0                # via cookiecutter
 cookiecutter==1.7.0
 future==0.18.2            # via cookiecutter
-idna==2.8                 # via requests
+idna==2.9                 # via requests
 jinja2-time==0.2.0        # via cookiecutter
 jinja2==3.0.0a1           # via cookiecutter, jinja2-time
 markupsafe==1.1.1         # via jinja2
