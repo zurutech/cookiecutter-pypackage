@@ -1,0 +1,14 @@
+# pyup: ignore file
+# Documentation
+
+doc8
+# m2r
+pydocstyle
+sphinx
+sphinx-autobuild
+sphinx-autodoc-typehints
+{%- if cookiecutter.command_line_interface|lower == 'click' %}
+sphinx-click
+{%- endif %}
+sphinx-copybutton
+sphinx-rtd-theme

@@ -1,0 +1,6 @@
+# pyup: ignore file
+# Documentation
+
+doc8
+pydocstyle
+sphinx

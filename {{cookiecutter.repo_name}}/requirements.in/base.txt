@@ -1,0 +1,3 @@
+# pyup: ignore file
+# Core
+{% if cookiecutter.command_line_interface|lower == 'click' %}Click>=7.0{%- endif %}

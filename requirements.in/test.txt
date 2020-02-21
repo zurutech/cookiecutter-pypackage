@@ -1,0 +1,8 @@
+# pyup: ignore file
+# Testing
+
+pytest
+pytest-cookies
+pytest-cov
+pyyaml
+tox
