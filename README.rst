@@ -111,8 +111,8 @@ be a fork.
   you think sounds good.
 
 
-.. |license| image:: /github/license/:user/:repo
-    :target: https://github.com/zurutech/cookiecutter-pypackage
+.. |license| image:: https://img.shields.io/github/license/zurutech/cookiecutter-pypackage
+    :target: https://github.com/zurutech/cookiecutter-pypackage/LICENSE
     :alt: License
 
 .. |development-status| image:: https://img.shields.io/badge/%F0%9F%8F%97%20_development--status-alpha-blue
