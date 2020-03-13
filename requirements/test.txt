@@ -10,7 +10,7 @@ attrs==19.3.0             # via pytest
 binaryornot==0.4.4        # via cookiecutter
 certifi==2019.11.28       # via requests
 chardet==3.0.4            # via binaryornot, requests
-click==7.0                # via cookiecutter
+click==7.1.1                # via cookiecutter
 cookiecutter==1.7.0       # via pytest-cookies
 coverage==5.0.3           # via pytest-cov
 distlib==0.3.0            # via virtualenv
