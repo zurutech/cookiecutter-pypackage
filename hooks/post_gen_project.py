@@ -37,3 +37,6 @@ if __name__ == "__main__":
 
     if "Internal" == "{{ cookiecutter.open_source_license }}":
         remove_file("LICENSE")
+
+    if "{{ cookiecutter.gitignore|lower }}" not in ["y", "yes"]:
+        remove_file(".gitignore")

@@ -9,6 +9,7 @@
     "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
     "python_version": "3.7, 3.8",
     "version": "0.1.0",
+    "gitignore": "y",
     "use_pytest": "y",
     "command_line_interface": ["Click", "No command-line interface"],
     "create_author_file": "y",
