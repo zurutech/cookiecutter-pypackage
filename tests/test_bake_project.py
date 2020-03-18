@@ -2,21 +2,33 @@
 
 # TODO: Tests need to be looked at and updated
 
-from contextlib import contextmanager
-import shlex
-import os
-import sys
-import subprocess
-import yaml
 import datetime
-from cookiecutter.utils import rmtree
+import os
+import shlex
+import subprocess
+import sys
+from contextlib import contextmanager
+from pathlib import Path
 
+import pytest
+import yaml
 from click.testing import CliRunner
+from cookiecutter.utils import rmtree
 
 if sys.version_info > (3, 0):
     import importlib
 else:
     import imp
+
+
+@pytest.fixture()
+def cookiecutter_toplevel_files():
+    not_present_at_default = ["LICENSE"]
+    template_repo = Path("{{cookiecutter.repo_name}}")
+    files = [
+        p.name for p in template_repo.iterdir() if p.name not in not_present_at_default
+    ]
+    return files
 
 
 @contextmanager
@@ -63,8 +75,20 @@ def check_output_inside_dir(command, dirpath):
         return subprocess.check_output(shlex.split(command))
 
 
-def test_year_compute_in_license_file(cookies):
-    with bake_in_temp_dir(cookies) as result:
+@pytest.mark.parametrize(
+    "license",
+    [
+        "MIT license",
+        "BSD license",
+        "ISC license",
+        "Apache Software License 2.0",
+        "GNU General Public License v3",
+    ],
+)
+def test_year_compute_in_license_file(cookies, license: str):
+    with bake_in_temp_dir(
+        cookies, extra_context={"open_source_license": license}
+    ) as result:
         license_file_path = result.project.join("LICENSE")
         now = datetime.datetime.now()
         assert str(now.year) in license_file_path.read()
@@ -78,17 +102,14 @@ def project_info(result):
     return project_path, package_name, project_dir
 
 
-def test_bake_with_defaults(cookies):
+def test_bake_with_defaults(cookies, cookiecutter_toplevel_files):
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
         assert result.exit_code == 0
         assert result.exception is None
-
         found_toplevel_files = [f.basename for f in result.project.listdir()]
-        assert "setup.py" in found_toplevel_files
-        assert "python_boilerplate" in found_toplevel_files
-        assert "tox.ini" in found_toplevel_files
-        assert "tests" in found_toplevel_files
+        for f in cookiecutter_toplevel_files:
+            assert f in found_toplevel_files
 
 
 def test_bake_and_run_tests(cookies):

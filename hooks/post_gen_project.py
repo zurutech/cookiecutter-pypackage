@@ -35,7 +35,7 @@ if __name__ == "__main__":
         CLI_FILE = os.path.join("{{ cookiecutter.package_name }}", "cli.py")
         remove_file(CLI_FILE)
 
-    if "Internal" == "{{ cookiecutter.open_source_license }}":
+    if "Not open source" == "{{ cookiecutter.open_source_license }}":
         remove_file("LICENSE")
 
     if "{{ cookiecutter.gitignore|lower }}" not in ["y", "yes"]:
