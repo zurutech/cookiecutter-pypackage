@@ -3,15 +3,16 @@
 from distutils.core import setup
 
 setup(
-    name="cookiecutter-pypackage",
+    name="zurutech-cookiecutter-pypackage",
     packages=[],
     version="0.1.0",
-    description="Cookiecutter template for a Python package",
+    description="Opinionated Cookiecutter template for a Python package",
     author="Machine Learning Team @ Zuru Tech",
     license="BSD",
     author_email="ml@zuru.tech",
     url="https://github.com/zurutech/cookiecutter-pypackage",
     keywords=["cookiecutter", "template", "package"],
+    python_requires=">=3.7",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
@@ -19,8 +20,6 @@ setup(
         "Natural Language :: English",
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Topic :: Software Development",
