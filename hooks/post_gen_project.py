@@ -32,7 +32,7 @@ if __name__ == "__main__":
         remove_file("tests/__init__.py")
 
     if "no" in "{{ cookiecutter.command_line_interface|lower }}":
-        CLI_FILE = os.path.join("{{ cookiecutter.package_name }}", "cli.py")
+        CLI_FILE = os.path.join("src", "{{ cookiecutter.package_name }}", "cli.py")
         remove_file(CLI_FILE)
 
     if "Not open source" == "{{ cookiecutter.open_source_license }}":
