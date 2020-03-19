@@ -12,8 +12,7 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    api
    dependencies_graph
    {% if cookiecutter.create_author_file == 'y' -%}authors
-   {% endif -%}
-
+   {%- endif %}
 Indices and tables
 ==================
 * :ref:`genindex`

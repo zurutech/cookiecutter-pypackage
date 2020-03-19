@@ -4,7 +4,16 @@ language: python
 python:
     - 3.8
     - 3.7
-    - 3.6
-install: pip install -r requirements.txt
+stages:
+    - Black
+install: &requirements
+    - pip install -r requirements.txt
+    - pip install tox-travis
 script: tox
 after_success: codecov
+jobs:
+    include:
+        - stage: Black
+          install: *requirements
+          script:
+              - tox -e black

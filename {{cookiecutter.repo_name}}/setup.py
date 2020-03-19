@@ -39,7 +39,7 @@ setup(
     },
 {%- endif -%}
     install_requires=[{%- if cookiecutter.command_line_interface|lower == "click" %}"Click>=7.0",{%- endif -%}],
-    python_requires="{{ cookiecutter.python_version }}",
+    python_requires=">={{ cookiecutter.python_version.split(', ') | sort() | first()}}",
 {%- if cookiecutter.open_source_license in license_classifiers %}
     license="{{ cookiecutter.open_source_license }}",
 {%- endif %}

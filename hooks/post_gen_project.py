@@ -5,7 +5,6 @@
 import os
 import subprocess
 
-
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 
@@ -32,10 +31,10 @@ if __name__ == "__main__":
         remove_file("tests/__init__.py")
 
     if "no" in "{{ cookiecutter.command_line_interface|lower }}":
-        CLI_FILE = os.path.join("{{ cookiecutter.package_name }}", "cli.py")
+        CLI_FILE = os.path.join("src", "{{ cookiecutter.package_name }}", "cli.py")
         remove_file(CLI_FILE)
 
-    if "Internal" == "{{ cookiecutter.open_source_license }}":
+    if "Not open source" == "{{ cookiecutter.open_source_license }}":
         remove_file("LICENSE")
 
     if "{{ cookiecutter.gitignore|lower }}" not in ["y", "yes"]:

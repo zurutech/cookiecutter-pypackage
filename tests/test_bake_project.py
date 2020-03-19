@@ -1,22 +1,33 @@
 """Test collection."""
 
-# TODO: Tests need to be looked at and updated
-
-from contextlib import contextmanager
-import shlex
-import os
-import sys
-import subprocess
-import yaml
 import datetime
-from cookiecutter.utils import rmtree
+import os
+import shlex
+import subprocess
+import sys
+from contextlib import contextmanager
+from pathlib import Path
 
 from click.testing import CliRunner
+
+import pytest
+import yaml
+from cookiecutter.utils import rmtree
 
 if sys.version_info > (3, 0):
     import importlib
 else:
     import imp
+
+
+@pytest.fixture()
+def cookiecutter_toplevel_files():
+    not_present_at_default = ["LICENSE"]
+    template_repo = Path("{{cookiecutter.repo_name}}")
+    files = [
+        p.name for p in template_repo.iterdir() if p.name not in not_present_at_default
+    ]
+    return files
 
 
 @contextmanager
@@ -63,8 +74,20 @@ def check_output_inside_dir(command, dirpath):
         return subprocess.check_output(shlex.split(command))
 
 
-def test_year_compute_in_license_file(cookies):
-    with bake_in_temp_dir(cookies) as result:
+@pytest.mark.parametrize(
+    "license",
+    [
+        "MIT license",
+        "BSD license",
+        "ISC license",
+        "Apache Software License 2.0",
+        "GNU General Public License v3",
+    ],
+)
+def test_year_compute_in_license_file(cookies, license: str):
+    with bake_in_temp_dir(
+        cookies, extra_context={"open_source_license": license}
+    ) as result:
         license_file_path = result.project.join("LICENSE")
         now = datetime.datetime.now()
         assert str(now.year) in license_file_path.read()
@@ -72,30 +95,28 @@ def test_year_compute_in_license_file(cookies):
 
 def project_info(result):
     """Get toplevel dir, package_name, and project dir from baked cookies"""
-    project_path = str(result.project)
-    package_name = os.path.split(project_path)[-1]
-    project_dir = os.path.join(project_path, package_name)
-    return project_path, package_name, project_dir
+    project_repository = Path(str(result.project))
+    package_name = project_repository.name.replace("-", "_")
+    project_dir = project_repository.joinpath("src", package_name)
+    return project_repository, package_name, project_dir
 
 
-def test_bake_with_defaults(cookies):
+def test_bake_with_defaults(cookies, cookiecutter_toplevel_files):
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
         assert result.exit_code == 0
         assert result.exception is None
-
         found_toplevel_files = [f.basename for f in result.project.listdir()]
-        assert "setup.py" in found_toplevel_files
-        assert "python_boilerplate" in found_toplevel_files
-        assert "tox.ini" in found_toplevel_files
-        assert "tests" in found_toplevel_files
+        for f in cookiecutter_toplevel_files:
+            assert f in found_toplevel_files
 
 
-def test_bake_and_run_tests(cookies):
-    with bake_in_temp_dir(cookies) as result:
-        assert result.project.isdir()
-        run_inside_dir("python setup.py test", str(result.project)) == 0
-        print("test_bake_and_run_tests path", str(result.project))
+# NOTE: for tests we use pytest
+# def test_bake_and_run_tests(cookies):
+#     with bake_in_temp_dir(cookies) as result:
+#         assert result.project.isdir()
+#         run_inside_dir("python setup.py test", str(result.project)) == 0
+#         print("test_bake_and_run_tests path", str(result.project))
 
 
 def test_bake_withspecialchars_and_run_tests(cookies):
@@ -147,20 +168,22 @@ def test_bake_without_author_file(cookies):
         assert "authors.rst" not in doc_files
 
         # Assert there are no spaces in the toc tree
-        docs_index_path = result.project.join("docs/index.rst")
+        docs_index_path = result.project.join("docs/source/index.rst")
         with open(str(docs_index_path)) as index_file:
-            assert "contributing\n   history" in index_file.read()
+            assert "dependencies_graph\n   \nIndices" in index_file.read()
 
-        # Check that
-        manifest_path = result.project.join("MANIFEST.in")
-        with open(str(manifest_path)) as manifest_file:
-            assert "AUTHORS.rst" not in manifest_file.read()
+        # NOTE: Currently not using MANIFEST.in
+        # # Check that
+        # manifest_path = result.project.join("MANIFEST.in")
+        # with open(str(manifest_path)) as manifest_file:
+        #     assert "AUTHORS.rst" not in manifest_file.read()
 
 
-def test_make_help(cookies):
-    with bake_in_temp_dir(cookies) as result:
-        output = check_output_inside_dir("make help", str(result.project))
-        assert b"check code coverage quickly with the default Python" in output
+# NOTE: Currently not using Makefile
+# def test_make_help(cookies):
+#     with bake_in_temp_dir(cookies) as result:
+#         output = check_output_inside_dir("make help", str(result.project))
+#         assert b"check code coverage quickly with the default Python" in output
 
 
 def test_bake_selecting_license(cookies):
@@ -186,23 +209,26 @@ def test_bake_not_open_source(cookies):
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert "setup.py" in found_toplevel_files
         assert "LICENSE" not in found_toplevel_files
-        assert "License" not in result.project.join("README.rst").read()
+        assert "License" not in result.project.join("README.md").read()
 
 
 def test_using_pytest(cookies):
-    with bake_in_temp_dir(cookies, extra_context={"use_pytest": "y"}) as result:
+    with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
         test_file_path = result.project.join("tests/test_python_boilerplate.py")
         lines = test_file_path.readlines()
         assert "import pytest" in "".join(lines)
         # Test the new pytest target
-        run_inside_dir("python setup.py pytest", str(result.project)) == 0
-        # Test the test alias (which invokes pytest)
-        run_inside_dir("python setup.py test", str(result.project)) == 0
+        try:
+            run_inside_dir("pytest", str(result.project)) == 0
+        except subprocess.CalledProcessError:
+            print("Failed to run pytest, probably due to a missing module. Retry.")
+            run_inside_dir("pip install -e .", str(result.project))
+            run_inside_dir("pytest", str(result.project)) == 0
 
 
 def test_not_using_pytest(cookies):
-    with bake_in_temp_dir(cookies) as result:
+    with bake_in_temp_dir(cookies, extra_context={"use_pytest": "n"}) as result:
         assert result.project.isdir()
         test_file_path = result.project.join("tests/test_python_boilerplate.py")
         lines = test_file_path.readlines()
