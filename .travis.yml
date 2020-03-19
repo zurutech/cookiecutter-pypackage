@@ -6,7 +6,6 @@ python:
     - 3.7
 stages:
     - Black
-    - Pylint
 install: &requirements
     - pip install -r requirements.txt
     - pip install tox-travis
@@ -17,14 +16,4 @@ jobs:
         - stage: Black
           install: *requirements
           script:
-              - echo excluding $(git config --file .gitmodules --get-regexp path | awk '{ print
-                $2 }')
-              - black --exclude $(git config --file .gitmodules --get-regexp path | awk '{ print
-                $2 }') --check .
-        - stage: Pylint
-          install: *requirements
-          script:
-              - pip --no-cache-dir install pylint-runner
-              - pylint_runner --rcfile=.pylintrc --output-format=text . | tee pylint.txt
-              - score=$(sed -n 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p' pylint.txt)
-              - if (( $(echo "$score < 8" |bc -l) )); then echo "Your Pylint score is too low, $score < 8!"; exit 1; fi
+              - tox -e black

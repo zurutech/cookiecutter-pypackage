@@ -8,9 +8,10 @@ import sys
 from contextlib import contextmanager
 from pathlib import Path
 
+from click.testing import CliRunner
+
 import pytest
 import yaml
-from click.testing import CliRunner
 from cookiecutter.utils import rmtree
 
 if sys.version_info > (3, 0):
