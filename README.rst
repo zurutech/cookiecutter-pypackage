@@ -2,7 +2,7 @@
 Zuru Tech Cookiecutter PyPackage 🍪 🐍
 =======================================
 
-|development-status| |pyup| |license|
+|development-status| |pyup| |license| |travis|
 
 Cookiecutter_ opinionated template for a Python package compliant with `zurutech/styleguide`_.
 
@@ -110,6 +110,9 @@ be a fork.
 * It's up to you whether or not to rename your fork/own version. Do whatever
   you think sounds good.
 
+.. |travis| image:: https://travis-ci.org/zurutech/cookiecutter-pypackage.svg?branch=master
+    :target: https://travis-ci.org/zurutech/cookiecutter-pypackage
+    :alt: Travis CI Build Status
 
 .. |license| image:: https://img.shields.io/github/license/zurutech/cookiecutter-pypackage
     :target: https://github.com/zurutech/cookiecutter-pypackage/LICENSE
