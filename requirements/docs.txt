@@ -36,4 +36,4 @@ urllib3==1.25.8           # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
-m2r
+m2r==0.2.1
