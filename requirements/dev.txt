@@ -79,7 +79,7 @@ urllib3==1.25.8           # via requests
 virtualenv==20.0.13       # via tox
 wcwidth==0.1.9            # via pytest
 whichcraft==0.6.1         # via cookiecutter
-wrapt==1.11.2             # via astroid
+wrapt==1.12.1             # via astroid
 yarg==0.1.9               # via pipreqs
 
 # The following packages are considered to be unsafe in a requirements file:
