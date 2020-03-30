@@ -36,6 +36,6 @@ six==1.14.0               # via packaging, python-dateutil, tox, virtualenv
 toml==0.10.0              # via tox
 tox==3.14.6               # via -r ./requirements.in/test.txt
 urllib3==1.25.8           # via requests
-virtualenv==20.0.13       # via tox
+virtualenv==20.0.15       # via tox
 wcwidth==0.1.9            # via pytest
 whichcraft==0.6.1         # via cookiecutter
