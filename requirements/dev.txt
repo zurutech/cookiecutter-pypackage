@@ -57,7 +57,7 @@ pytest==5.4.2             # via -r ./requirements.in/test.txt, pytest-cookies, p
 python-dateutil==2.8.1    # via arrow
 pytz==2020.1              # via babel
 pyyaml==5.3.1               # via -r ./requirements.in/test.txt
-regex==2020.2.20          # via black
+regex==2020.5.7          # via black
 requests==2.23.0          # via cookiecutter, sphinx, yarg
 restructuredtext-lint==1.3.0  # via doc8
 rope==0.16.0              # via -r ./requirements.in/dev.txt
