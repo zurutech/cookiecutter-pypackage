@@ -24,7 +24,7 @@ more-itertools==8.4.0     # via pytest
 packaging==20.4           # via pytest, tox
 pluggy==0.13.1            # via pytest, tox
 poyo==0.5.0               # via cookiecutter
-py==1.8.1                 # via pytest, tox
+py==1.8.2                 # via pytest, tox
 pyparsing==2.4.6          # via packaging
 pytest-cookies==0.5.1     # via -r ./requirements.in/test.txt
 pytest-cov==2.8.1         # via -r ./requirements.in/test.txt
