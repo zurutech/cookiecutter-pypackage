@@ -16,7 +16,7 @@ coverage==5.1           # via pytest-cov
 distlib==0.3.1            # via virtualenv
 filelock==3.0.12          # via tox, virtualenv
 future==0.18.2            # via cookiecutter
-idna==2.9                 # via requests
+idna==2.10                 # via requests
 jinja2-time==0.2.0        # via cookiecutter
 jinja2==3.0.0a1           # via cookiecutter, jinja2-time
 markupsafe==1.1.1         # via jinja2
