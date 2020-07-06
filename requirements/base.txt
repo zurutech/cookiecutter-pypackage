@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=./requirements/base.txt --pre ./requirements.in/base.txt
 #
-arrow==0.15.5             # via jinja2-time
+arrow==0.15.7             # via jinja2-time
 binaryornot==0.4.4        # via cookiecutter
 certifi==2019.11.28       # via requests
 chardet==3.0.4            # via binaryornot, requests
