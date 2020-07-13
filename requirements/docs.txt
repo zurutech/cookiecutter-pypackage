@@ -8,7 +8,7 @@ alabaster==0.7.12         # via sphinx
 babel==2.8.0              # via sphinx
 certifi==2020.6.20       # via requests
 chardet==3.0.4            # via doc8, requests
-doc8==0.8.0               # via -r ./requirements.in/docs.txt
+doc8==0.8.1               # via -r ./requirements.in/docs.txt
 docutils==0.16            # via doc8, restructuredtext-lint, sphinx
 idna==2.9                 # via requests
 imagesize==1.2.0          # via sphinx
