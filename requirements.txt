@@ -28,7 +28,7 @@ flake8==3.8.3             # via -r ./requirements.in/linting.txt, flake8-bugbear
 future==0.18.2            # via cookiecutter
 idna==2.10                 # via requests
 imagesize==1.2.0          # via sphinx
-isort[pyproject,requirements]==4.3.21  # via -r ./requirements.in/linting.txt, pylint
+isort[requirements,pyproject]==5.0.9  # via -r ./requirements.in/linting.txt, pylint
 jinja2-time==0.2.0        # via cookiecutter
 jinja2==2.11.1            # via cookiecutter, jinja2-time, sphinx
 lazy-object-proxy==1.4.3  # via astroid
