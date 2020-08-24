@@ -46,7 +46,7 @@ pluggy==0.13.1            # via pytest, tox
 poyo==0.5.0               # via cookiecutter
 py==1.9.0                 # via pytest, tox
 pycodestyle==2.6.0        # via flake8
-pydocstyle==5.0.2         # via -r ./requirements.in/docs.txt
+pydocstyle==5.1.0         # via -r ./requirements.in/docs.txt
 pyflakes==2.2.0           # via flake8
 pygments==2.6.1           # via sphinx
 pylint==2.5.3             # via -r ./requirements.in/linting.txt
