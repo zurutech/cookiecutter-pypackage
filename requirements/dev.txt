@@ -6,9 +6,9 @@
 #
 alabaster==0.7.12         # via sphinx
 appdirs==1.4.4            # via black, virtualenv
-arrow==0.15.8             # via jinja2-time, pytest-cookies
+arrow==0.16.0             # via jinja2-time, pytest-cookies
 astroid==2.4.2            # via pylint
-attrs==19.3.0             # via black, flake8-bugbear, pytest
+attrs==20.1.0             # via black, flake8-bugbear, pytest
 babel==2.8.0              # via sphinx
 binaryornot==0.4.4        # via cookiecutter
 black==19.10b0            # via -r ./requirements.in/linting.txt
@@ -28,7 +28,7 @@ flake8==3.8.3             # via -r ./requirements.in/linting.txt, flake8-bugbear
 future==0.18.2            # via cookiecutter
 idna==2.10                 # via requests
 imagesize==1.2.0          # via sphinx
-isort[pyproject,requirements]==5.2.0  # via -r ./requirements.in/linting.txt, pylint
+isort[pyproject,requirements]==5.4.2  # via -r ./requirements.in/linting.txt, pylint
 jinja2-time==0.2.0        # via cookiecutter
 jinja2==2.11.2            # via cookiecutter, jinja2-time, sphinx
 lazy-object-proxy==1.5.1  # via astroid
@@ -46,14 +46,14 @@ pluggy==0.13.1            # via pytest, tox
 poyo==0.5.0               # via cookiecutter
 py==1.9.0                 # via pytest, tox
 pycodestyle==2.6.0        # via flake8
-pydocstyle==5.0.2         # via -r ./requirements.in/docs.txt
+pydocstyle==5.1.0         # via -r ./requirements.in/docs.txt
 pyflakes==2.2.0           # via flake8
 pygments==2.6.1           # via sphinx
-pylint==2.5.3             # via -r ./requirements.in/linting.txt
+pylint==2.6.0             # via -r ./requirements.in/linting.txt
 pyparsing==2.4.7          # via packaging
 pytest-cookies==0.5.1     # via -r ./requirements.in/test.txt
-pytest-cov==2.10.0         # via -r ./requirements.in/test.txt
-pytest==5.4.3             # via -r ./requirements.in/test.txt, pytest-cookies, pytest-cov
+pytest-cov==2.10.1         # via -r ./requirements.in/test.txt
+pytest==6.0.1             # via -r ./requirements.in/test.txt, pytest-cookies, pytest-cov
 python-dateutil==2.8.1    # via arrow
 pytz==2020.1              # via babel
 pyyaml==5.3.1               # via -r ./requirements.in/test.txt
@@ -63,7 +63,7 @@ restructuredtext-lint==1.3.1  # via doc8
 rope==0.17.0              # via -r ./requirements.in/dev.txt
 six==1.15.0               # via astroid, doc8, packaging, python-dateutil, stevedore, tox, virtualenv
 snowballstemmer==2.0.0    # via pydocstyle, sphinx
-sphinx==3.1.2             # via -r ./requirements.in/docs.txt
+sphinx==3.2.1             # via -r ./requirements.in/docs.txt
 sphinxcontrib-applehelp==1.0.2  # via sphinx
 sphinxcontrib-devhelp==1.0.2  # via sphinx
 sphinxcontrib-htmlhelp==1.0.3  # via sphinx
@@ -72,11 +72,11 @@ sphinxcontrib-qthelp==1.0.3  # via sphinx
 sphinxcontrib-serializinghtml==1.1.4  # via sphinx
 stevedore==3.2.0         # via doc8
 toml==0.10.1              # via black, isort, tox
-tox==3.18.0               # via -r ./requirements.in/test.txt
+tox==3.19.0               # via -r ./requirements.in/test.txt
 typed-ast==1.4.1          # via black, mypy
-typing-extensions==3.7.4.2  # via mypy
+typing-extensions==3.7.4.3  # via mypy
 urllib3==1.25.10           # via requests
-virtualenv==20.0.28       # via tox
+virtualenv==20.0.31       # via tox
 wcwidth==0.2.5            # via pytest
 whichcraft==0.6.1         # via cookiecutter
 wrapt==1.12.1             # via astroid
