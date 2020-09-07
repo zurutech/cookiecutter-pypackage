@@ -70,7 +70,7 @@ sphinxcontrib-htmlhelp==1.0.3  # via sphinx
 sphinxcontrib-jsmath==1.0.1  # via sphinx
 sphinxcontrib-qthelp==1.0.3  # via sphinx
 sphinxcontrib-serializinghtml==1.1.4  # via sphinx
-stevedore==3.2.0         # via doc8
+stevedore==3.2.1         # via doc8
 toml==0.10.1              # via black, isort, tox
 tox==3.19.0               # via -r ./requirements.in/test.txt
 typed-ast==1.4.1          # via black, mypy
