@@ -39,7 +39,7 @@ mypy-extensions==0.4.3    # via mypy
 mypy==0.790               # via -r ./requirements.in/linting.txt
 packaging==20.4           # via pytest, sphinx, tox
 pathspec==0.8.0           # via black
-pbr==5.4.5                # via stevedore
+pbr==5.5.0                # via stevedore
 pip-api==0.0.14           # via isort
 pipreqs==0.4.10           # via isort
 pluggy==0.13.1            # via pytest, tox
