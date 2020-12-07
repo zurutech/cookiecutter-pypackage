@@ -33,7 +33,7 @@ python-dateutil==2.8.1    # via arrow
 pyyaml==5.3.1               # via -r ./requirements.in/test.txt
 requests==2.25.0          # via cookiecutter
 six==1.15.0               # via packaging, python-dateutil, tox, virtualenv
-toml==0.10.1              # via tox
+toml==0.10.2              # via tox
 tox==3.19.0               # via -r ./requirements.in/test.txt
 urllib3==1.25.10           # via requests
 virtualenv==20.0.31       # via tox
