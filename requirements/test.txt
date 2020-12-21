@@ -12,7 +12,7 @@ certifi==2020.12.5       # via requests
 chardet==4.0.0            # via binaryornot, requests
 click==7.1.2              # via cookiecutter
 cookiecutter==1.7.2       # via pytest-cookies
-coverage==5.2.1           # via pytest-cov
+coverage==5.3.1           # via pytest-cov
 distlib==0.3.1            # via virtualenv
 filelock==3.0.12          # via tox, virtualenv
 future==0.18.2            # via cookiecutter
