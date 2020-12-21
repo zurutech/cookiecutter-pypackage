@@ -53,7 +53,7 @@ pylint==2.6.0             # via -r ./requirements.in/linting.txt
 pyparsing==2.4.7          # via packaging
 pytest-cookies==0.5.1     # via -r ./requirements.in/test.txt
 pytest-cov==2.10.1         # via -r ./requirements.in/test.txt
-pytest==6.0.1             # via -r ./requirements.in/test.txt, pytest-cookies, pytest-cov
+pytest==6.2.1             # via -r ./requirements.in/test.txt, pytest-cookies, pytest-cov
 python-dateutil==2.8.1    # via arrow
 pytz==2020.1              # via babel
 pyyaml==5.3.1               # via -r ./requirements.in/test.txt
