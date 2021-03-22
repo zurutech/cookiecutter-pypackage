@@ -9,7 +9,7 @@ appdirs==1.4.4            # via black, virtualenv
 arrow==1.0.3             # via jinja2-time, pytest-cookies
 astroid==2.5.1            # via pylint
 attrs==20.3.0             # via black, flake8-bugbear, pytest
-babel==2.8.0              # via sphinx
+babel==2.9.0              # via sphinx
 binaryornot==0.4.4        # via cookiecutter
 black==20.8b1            # via -r ./requirements.in/linting.txt
 certifi==2020.6.20       # via requests
