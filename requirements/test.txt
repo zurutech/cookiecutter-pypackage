@@ -30,7 +30,7 @@ pytest-cookies==0.5.1     # via -r ./requirements.in/test.txt
 pytest-cov==2.11.1         # via -r ./requirements.in/test.txt
 pytest==6.2.3             # via -r ./requirements.in/test.txt, pytest-cookies, pytest-cov
 python-dateutil==2.8.1    # via arrow
-pyyaml==5.3.1               # via -r ./requirements.in/test.txt
+pyyaml==5.4.1               # via -r ./requirements.in/test.txt
 requests==2.24.0          # via cookiecutter
 six==1.15.0               # via packaging, python-dateutil, tox, virtualenv
 toml==0.10.1              # via tox
