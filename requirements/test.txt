@@ -18,7 +18,7 @@ filelock==3.0.12          # via tox, virtualenv
 future==0.18.2            # via cookiecutter
 idna==3.1                 # via requests
 jinja2-time==0.2.0        # via cookiecutter
-jinja2==3.0.0a1           # via cookiecutter, jinja2-time
+jinja2==3.0.0rc1           # via cookiecutter, jinja2-time
 markupsafe==1.1.1         # via jinja2
 more-itertools==8.7.0     # via pytest
 packaging==20.9           # via pytest, tox
