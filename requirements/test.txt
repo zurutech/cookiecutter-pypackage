@@ -9,7 +9,7 @@ arrow==1.0.3             # via jinja2-time, pytest-cookies
 attrs==20.3.0             # via pytest
 binaryornot==0.4.4        # via cookiecutter
 certifi==2020.12.5       # via requests
-chardet==3.0.4            # via binaryornot, requests
+chardet==4.0.0            # via binaryornot, requests
 click==7.1.2              # via cookiecutter
 cookiecutter==1.7.2       # via pytest-cookies
 coverage==5.2.1           # via pytest-cov
