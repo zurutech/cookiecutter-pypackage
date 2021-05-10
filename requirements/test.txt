@@ -34,7 +34,7 @@ pyyaml==5.4.1               # via -r ./requirements.in/test.txt
 requests==2.25.1          # via cookiecutter
 six==1.16.0               # via packaging, python-dateutil, tox, virtualenv
 toml==0.10.2              # via tox
-tox==3.19.0               # via -r ./requirements.in/test.txt
+tox==3.23.1               # via -r ./requirements.in/test.txt
 urllib3==1.25.10           # via requests
 virtualenv==20.0.31       # via tox
 wcwidth==0.2.5            # via pytest
