@@ -13,7 +13,7 @@ cookiecutter==1.7.2       # via -r ./requirements.in/base.txt
 future==0.18.2            # via cookiecutter
 idna==3.1                 # via requests
 jinja2-time==0.2.0        # via cookiecutter
-jinja2==3.0.0a1           # via cookiecutter, jinja2-time
+jinja2==3.0.0rc2           # via cookiecutter, jinja2-time
 markupsafe==1.1.1         # via jinja2
 poyo==0.5.0               # via cookiecutter
 python-dateutil==2.8.1    # via arrow
