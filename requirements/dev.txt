@@ -7,7 +7,7 @@
 alabaster==0.7.12         # via sphinx
 appdirs==1.4.4            # via black, virtualenv
 arrow==1.1.0             # via jinja2-time, pytest-cookies
-astroid==2.4.2            # via pylint
+astroid==2.5.6            # via pylint
 attrs==20.1.0             # via black, flake8-bugbear, pytest
 babel==2.8.0              # via sphinx
 binaryornot==0.4.4        # via cookiecutter
